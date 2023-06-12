@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+.wrapper {
+    /*background-color: #0c373a;*/
+    /*width: 400px;*/
+    /*margin: 50px 100px 30px 100px;*/
+    /*box-shadow: 5px 3px;*/
+    /*align-content: center;*/
+    /*padding: 20px 0;*/
+    display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.box {
+    padding-top: 30px;
+    background-color: #0c373a;
+    width: 400px;
+    margin: 50px 30px 30px 30px;
+    box-shadow: 5px 3px;
+    align-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.count {
+    font-size: 30px;
+    color: orange;
+    border: 2px solid darkorange;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 10px 20px 40px 20px;
+    padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.count--disabled {
+    color: rgba(111, 159, 148, 0.79);
+    opacity: 0.7;
 }
 
-.App-link {
-  color: #61dafb;
+.btn--box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0px 20px 0px 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+    text-align: center;
+    background-color: orange;
+    border: 1px solid black;
+    width: 100px;
+    height: 50px;
+    font-size: large;
+    font-family: Calibri, serif;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0;
+    margin: 5px 10px 5px 10px;
+}
+
+.buttonDisabled {
+    text-align: center;
+    background-color: rgba(111, 159, 148, 0.79);
+    color: orange;
+    width: 100px;
+    height: 50px;
+    font-size: large;
+    font-family: Calibri, serif;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0;
+    margin: 5px 10px 5px 10px;
+}
+
+.display-text {
+    color: orange;
+}
+
+input {
+    width: 100px;
+    height: 30px;
+    background-color: #0c373a;
+    color: orange;
+    font-size: 18px;
+    text-align: center;
+    border-color: orange;
+    margin: 8px;
+}
+
+.values-text {
+    color: orange;
+    font-size: 20px;
 }
