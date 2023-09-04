@@ -1,42 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './../App.css'
-import { Button } from "./Button";
+import {Button} from "./Button";
 import clsx from "clsx";
 
-// const INIT_VALUE = 0;
-// const MAX_VALUE = 5;
-type CounterProps = {
-    startValue: number
-    setStartValue: (startValue: number) => void
-    maxValue: number
-    setMaxValue: (maxValue: number) => void
-    isDisabled?: boolean
-}
-export const Counter = (props: CounterProps) => {
-  //  let [count, setCount] = useState(props.startValue);
+const INIT_VALUE = 0;
+const MAX_VALUE = 5;
 
-    useEffect(() => {
-        const valueAsString = localStorage.getItem('startValue');
-        if(valueAsString) {
-            const newValue = JSON.parse(valueAsString);
-            props.setStartValue(newValue);
-        }
-    }, [])
+/*export const Counter = () => {
+    let [count, setCount] = useState(INIT_VALUE);
+
+    /!*  useEffect(() => {
+          const valueAsString = localStorage.getItem('startValue');
+          if(valueAsString) {
+              const newValue = JSON.parse(valueAsString);
+              props.setStartValue(newValue);
+          }
+      }, [])*!/
     const increaseCount = () => {
-        props.setStartValue(props.startValue + 1);
+        setCount(count => count + 1);
     }
 
     const resetCount = () => {
-        props.setStartValue(props.startValue);
+        setCount(INIT_VALUE);
     }
 
-   const isDisabled = props.startValue >= props.maxValue
-    // const makeDisabled = (disabled: boolean) => {
-    //     if(props.startValue >= props.maxValue) {
-    //         //props.isDisabled(true)
-    //     }
-    // }
-const display = props.startValue <= 0 ? "enter values and press 'set' " : props.startValue
+    const isDisabled = INIT_VALUE >= MAX_VALUE
+
+    const display = INIT_VALUE <= 0 ? "enter values and press 'set' " : INIT_VALUE
     return (
         <div className={'box'}>
             <div
@@ -52,6 +42,7 @@ const display = props.startValue <= 0 ? "enter values and press 'set' " : props.
                 <Button onClick={resetCount}>RESET</Button>
             </div>
         </div>
-        
+
     );
-};
+};*/
+

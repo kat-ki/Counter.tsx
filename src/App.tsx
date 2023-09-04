@@ -1,13 +1,15 @@
 import React from 'react';
-import { Counter } from "./components/Counter";
 import './App.css'
-import { ImprovedCounter } from "./components/ImprovedCounter";
+import {ImprovedCounter} from "./components/ImprovedCounter";
+import BestCounter from "./components/BestCounter";
 
 const App = () => {
 
     return (
         <div className={'wrapper'}>
-            <ImprovedCounter />
+           {/* <Counter />*/}
+           {/* <ImprovedCounter />*/}
+            <BestCounter />
         </div>
     );
 };

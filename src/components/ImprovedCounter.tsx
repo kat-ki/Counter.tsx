@@ -2,8 +2,6 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import './../App.css'
 import { Button } from "./Button";
 import clsx from "clsx";
-import { Input } from "./Input";
-import { Counter } from "./Counter";
 
 // const MAX_VALUE = 10;
 // const START_VALUE = 0;
@@ -91,12 +89,7 @@ export const ImprovedCounter = () => {
             </div>
             <div style={{ 'backgroundColor': 'white' }}>here must be space</div>
 
-            <Counter startValue={startValue}
-                     setStartValue={setStartValue}
-                     maxValue={maxValue}
-                     setMaxValue={setMaxValue}
-                     isDisabled={isDisabled}
-            />
+          
         </main>
 
     );
