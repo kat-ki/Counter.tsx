@@ -6,13 +6,18 @@
     /*align-content: center;*/
     /*padding: 20px 0;*/
     display: flex;
+    justify-content: center;
 }
-
+.generalBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .box {
-    padding-top: 30px;
+    padding-top: 10px;
     background-color: #0c373a;
     width: 400px;
-    margin: 50px 30px 30px 30px;
+    margin: 40px 20px 20px 20px;
     box-shadow: 5px 3px;
     align-content: center;
 }
@@ -23,10 +28,25 @@
     border: 2px solid darkorange;
     text-align: center;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     align-content: center;
-    margin: 10px 20px 40px 20px;
-    padding: 10px;
+    margin: 10px;
+    padding: 0;
+}
+
+.countCentered {
+    font-size: 30px;
+    color: orange;
+    border: 2px solid darkorange;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 10px 10px 20px 10px;
+    padding: 0;
 }
 
 .count--disabled {
@@ -46,13 +66,13 @@ button {
     background-color: orange;
     border: 1px solid black;
     width: 100px;
-    height: 50px;
+    height: 40px;
     font-size: large;
     font-family: Calibri, serif;
     font-weight: bold;
     border-radius: 10px;
     padding: 0;
-    margin: 5px 10px 5px 10px;
+    margin: 3px 8px 3px 8px;
 }
 
 .buttonDisabled {

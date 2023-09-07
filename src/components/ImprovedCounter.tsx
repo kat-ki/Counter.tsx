@@ -55,7 +55,7 @@ export const ImprovedCounter = () => {
         <main>
             <div className={'box'}>
                 <div
-                    className={clsx('count', isDisabled && 'count--disabled')}
+                    className={clsx('countCentered', isDisabled && 'count--disabled')}
                 >
                     <div>
                         <div className={'values-text'}>max value:</div>

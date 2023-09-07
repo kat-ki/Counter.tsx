@@ -1,48 +1,94 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './../App.css'
 import {Button} from "./Button";
 import clsx from "clsx";
+import BestCounter from "./BestCounter";
 
-const INIT_VALUE = 0;
-const MAX_VALUE = 5;
+let MAX_VALUE = 1;
+let MIN_VALUE = 0;
+//let errorText = 'min value should be less than max value'
+let btnDisabled = MIN_VALUE > MAX_VALUE && MIN_VALUE === MAX_VALUE
 
-/*export const Counter = () => {
-    let [count, setCount] = useState(INIT_VALUE);
+export const Counter = () => {
+    let [maxValue, setMaxValue] = useState(MAX_VALUE);
+    let [minValue, setMinValue] = useState(MIN_VALUE);
+    let [isDisabled, setIsDisabled] = useState(btnDisabled);
+    // let [error, setError] = useState(errorText);
 
-    /!*  useEffect(() => {
-          const valueAsString = localStorage.getItem('startValue');
-          if(valueAsString) {
-              const newValue = JSON.parse(valueAsString);
-              props.setStartValue(newValue);
-          }
-      }, [])*!/
-    const increaseCount = () => {
-        setCount(count => count + 1);
+    const decrementMaxValue = () => {
+        if (maxValue > 0) {
+            setMaxValue(maxValue => maxValue - 1);
+        }
+    }
+    const incrementMaxValue = () => {
+        if (maxValue > minValue) {
+            setMaxValue(maxValue => maxValue + 1);
+        } else setIsDisabled(isDisabled)
+    }
+    const decrementMinValue = () => {
+        if (minValue > 0) {
+            setMinValue(minValue => minValue - 1);
+        }
+    }
+    const incrementMinValue = () => {
+        if (minValue < maxValue && minValue !== maxValue) {
+            setMinValue(minValue => minValue + 1);
+        }
     }
 
-    const resetCount = () => {
-        setCount(INIT_VALUE);
+    const setOnClick = () => {
+        if (maxValue > minValue && maxValue !== minValue) {
+            localStorage.setItem('maxValue', JSON.stringify(maxValue));
+        } else setIsDisabled(isDisabled);
+
+        if (minValue < maxValue && minValue !== maxValue) {
+            localStorage.setItem('minValue', JSON.stringify(minValue));
+        } else setIsDisabled(!isDisabled)
     }
 
-    const isDisabled = INIT_VALUE >= MAX_VALUE
+    // const btnDisabled = MIN_VALUE >= MAX_VALUE
 
-    const display = INIT_VALUE <= 0 ? "enter values and press 'set' " : INIT_VALUE
+    //const display = INIT_VALUE <= 0 ? "enter values and press 'set' " : INIT_VALUE
     return (
-        <div className={'box'}>
-            <div
-                className={clsx('count', isDisabled && 'count--disabled')}
-            >
-                <div className={'display-text'}>{display}</div>
-            </div>
+        <div className={'generalBox'}>
+            <div className={'box'}>
+                <div className={'count'}>
+                    <h5>Max value:</h5>
+                    <Button onClick={decrementMaxValue}
+                            className={clsx(isDisabled && 'buttonDisabled')}
+                    >-</Button>
+                    <h2>{maxValue}</h2>
+                    <Button onClick={incrementMaxValue}
+                            className={clsx(isDisabled && 'buttonDisabled')}
+                    >+</Button>
+                </div>
 
-            <div className={'btn--box'}>
-                <Button onClick={increaseCount} disabled={isDisabled}
-                        className={clsx(isDisabled && 'buttonDisabled')}>INC</Button>
+                <div className={'count'}>
+                    <h5>Min value:</h5>
+                    <Button onClick={decrementMinValue}
+                            className={clsx(isDisabled && 'buttonDisabled')}
+                    >-</Button>
+                    <h2>{minValue}</h2>
+                    <Button onClick={incrementMinValue}
+                            className={clsx(isDisabled && 'buttonDisabled')}
+                    >+</Button>
+                </div>
 
-                <Button onClick={resetCount}>RESET</Button>
+                <div className={'btn--box'}>
+                    <Button onClick={setOnClick}
+                            className={clsx(isDisabled && 'buttonDisabled')}
+                    >SET</Button>
+                </div>
             </div>
+            <BestCounter maxValue={maxValue}
+                         setMaxValue={setMaxValue}
+                         minValue={minValue}
+                         setMinValue={setMinValue}
+                         isDisabled={isDisabled}
+                         setIsDisabled={setIsDisabled}
+            />
         </div>
 
     );
-};*/
+};
 
