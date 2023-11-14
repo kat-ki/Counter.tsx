@@ -4,7 +4,7 @@ import clsx from "clsx";
 import {isDisabled} from "@testing-library/user-event/dist/utils";
 import {Button} from "./Button";
 
-type BestCounterType = {
+type CounterTwoType = {
     maxValue: number
     setMaxValue: (maxValue: number) => void
     minValue: number
@@ -12,27 +12,37 @@ type BestCounterType = {
     isDisabled: boolean
     setIsDisabled: (value: boolean) => void
 }
-const BestCounter = (props: BestCounterType) => {
 
-    const [startValue, setStartValue] = useState(props.minValue)
-    const [finalValue, setFinalValue] = useState(props.maxValue)
+let displayMessage = "enter value and press 'set'"
+const CounterTwo = (props: CounterTwoType) => {
+
+    const [display, setDisplay] = useState(displayMessage)
+    // const [finalValue, setFinalValue] = useState(props.maxValue)
     const incrementValue = () => {
-        let valueString = localStorage.getItem('minValue');
-        if (valueString) {
-            const newValue = JSON.parse(valueString);
-        } setStartValue(newValue => newValue + 1); // ???????????????????????????
+        let valueStringMin = localStorage.getItem('minValue');
+        if (valueStringMin) {
+            const newValue = JSON.parse(valueStringMin);
+            console.log(newValue)
+            setDisplay(newValue);
+        }
+
+        /*let valueStringMax = localStorage.getItem('maxValue');
+        if (valueStringMax) {
+            const newValue = JSON.parse(valueStringMax);
+            setDisplay(newValue);
+        }*/
     }
 // тут выше в функции взять приходящее мин. значение, сделать его стартовым, а приходящее макс. значение сделать окончат.
     const resetValue = () => {
-
+        console.log(display)
+        setDisplay(display)
     }
 
 
     return (
         <div className={'box'}>
             <div className={'countCentered'}>
-                // тут ниже указать либо ошибку "enter value and press 'set' либо установить приходящее мин. значение
-                <h2>{props.minValue}</h2>
+                <h2>{display}</h2>
             </div>
             <div className={'btn--box'}>
                 <Button onClick={incrementValue}
@@ -46,4 +56,4 @@ const BestCounter = (props: BestCounterType) => {
     );
 };
 
-export default BestCounter;
+export default CounterTwo;

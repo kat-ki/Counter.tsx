@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import './../App.css'
 import {Button} from "./Button";
 import clsx from "clsx";
-import BestCounter from "./BestCounter";
+import CounterTwo from "./CounterTwo";
 
-let MAX_VALUE = 1;
+let MAX_VALUE = 0;
 let MIN_VALUE = 0;
 //let errorText = 'min value should be less than max value'
 let btnDisabled = MIN_VALUE > MAX_VALUE && MIN_VALUE === MAX_VALUE
@@ -21,9 +21,7 @@ export const Counter = () => {
         }
     }
     const incrementMaxValue = () => {
-        if (maxValue > minValue) {
             setMaxValue(maxValue => maxValue + 1);
-        } else setIsDisabled(isDisabled)
     }
     const decrementMinValue = () => {
         if (minValue > 0) {
@@ -37,18 +35,11 @@ export const Counter = () => {
     }
 
     const setOnClick = () => {
-        if (maxValue > minValue && maxValue !== minValue) {
             localStorage.setItem('maxValue', JSON.stringify(maxValue));
-        } else setIsDisabled(isDisabled);
 
-        if (minValue < maxValue && minValue !== maxValue) {
             localStorage.setItem('minValue', JSON.stringify(minValue));
-        } else setIsDisabled(!isDisabled)
     }
 
-    // const btnDisabled = MIN_VALUE >= MAX_VALUE
-
-    //const display = INIT_VALUE <= 0 ? "enter values and press 'set' " : INIT_VALUE
     return (
         <div className={'generalBox'}>
             <div className={'box'}>
@@ -80,7 +71,7 @@ export const Counter = () => {
                     >SET</Button>
                 </div>
             </div>
-            <BestCounter maxValue={maxValue}
+            <CounterTwo maxValue={maxValue}
                          setMaxValue={setMaxValue}
                          minValue={minValue}
                          setMinValue={setMinValue}
